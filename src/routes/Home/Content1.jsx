@@ -1,62 +1,75 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import QueueAnim from 'rc-queue-anim';
 import TweenOne from 'rc-tween-one';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 
+import introImg1 from '../../assets/intro_content_image_1.png';
+import introImg2 from '../../assets/intro_content_image_2.png';
+import introImg3 from '../../assets/intro_content_image_3.png';
+import introImg4 from '../../assets/intro_content_image_4.png';
+
 class Content extends React.Component {
-  static defaultProps = {
-    className: 'content0',
+
+  static propTypes = {
+    className: PropTypes.string,
+    id: PropTypes.string,
   };
+
+  static defaultProps = {
+    className: 'content7',
+  };
+
+  getBlockChildren = (item, i) =>(
+    <li key={i} id={`${this.props.id}-block${i}`}>
+      <div className="icon">
+        <img src={item.icon} width="100%" />
+      </div>
+      <h3>{item.title}</h3>
+      <p>{item.content}</p>
+    </li>);
 
   render() {
     const props = { ...this.props };
-    const isMode = props.isMode;
-    delete props.isMode;
-    const animType = {
-      queue: isMode ? 'bottom' : 'right',
-      one: isMode ? { y: '+=30', opacity: 0, type: 'from' }
-        : { x: '-=30', opacity: 0, type: 'from' },
-    }
+    delete props.isMobile;
+    const dataSource = [
+      { icon: introImg1, title: '100% Thiên Nhiên', content: 'Toàn bộ sản phẩm của mỹ phẩm I\'m Nature hoàn toàn từ nguyên liệu tự nhiên' },
+      { icon: introImg2, title: 'Cam kết chất lượng', content: 'Sản phẩm chất lượng cao là giá trị cốt lõi tạo nên thương hiệu của Im Nature' },
+      { icon: introImg3, title: 'Giá cả phải chăng', content: 'Các sản phẩm I\'m Nature đều có giá thành khá hợp lý do có nguồn nguyên liệu tự nhiên, không chất hóa học.' },
+      { icon: introImg4, title: 'Không tác dụng phụ', content: 'Dịu nhẹ với làn da và lành tính đối với các vùng da nhạy cảm, giúp nuôi dưỡng da từ bên trong' },
+    ];
+    const listChildren = dataSource.map(this.getBlockChildren);
     return (
       <div
         {...props}
-        className={`content-template-wrapper content-half-wrapper ${props.className}-wrapper`}
+        className={`content-template-wrapper ${props.className}-wrapper`}
       >
         <OverPack
           className={`content-template ${props.className}`}
           location={props.id}
         >
           <TweenOne
-            key="img"
-            animation={animType.one}
-            className={`${props.className}-img`}
-            id={`${props.id}-imgWrapper`}
-            resetStyleBool
+            animation={{ y: '+=30', opacity: 0, type: 'from' }}
+            component="h1"
+            key="h1"
+            reverseDelay={300}
+            id={`${props.id}-title`}
           >
-            <span id={`${props.id}-img`}>
-              <img width="100%" src="https://zos.alipayobjects.com/rmsportal/nLzbeGQLPyBJoli.png" />
-            </span>
+             GIỚI THIỆU I'M NATURE
+             <p style={{textAlign: 'center', fontSize: 14, lineHeight: '1.6', padding: '15px 4%'}}>
+             "...Lấy cảm hứng từ những mùi hương thiên nhiên, mộc mạc, các sản phẩm của I'm Nature luôn chú trọng đến hương thơm nhẹ nhàng, tinh tế bên cạnh những cam kết về thành phần hoàn toàn tự nhiên . Các sản phẩm của I'm Nature hiện nay rất đa dạng, từ các sản phẩm chăm sóc da, dưỡng thể, dầu gội cho đến tinh dầu,dung dịch vệ sinh ..."
+             </p>
           </TweenOne>
           <QueueAnim
-            className={`${props.className}-text`}
-            type={animType.queue}
-            key="text"
-            leaveReverse
-            ease={['easeOutCubic', 'easeInCubic']}
-            id={`${props.id}-textWrapper`}
+            component="ul" type="bottom" key="block" leaveReverse
+            id={`${props.id}-contentWrapper`}
           >
-            <h1 key="h1" id={`${props.id}-title`}>
-              企业资源管理
-            </h1>
-            <p key="p" id={`${props.id}-content`}>
-              云资源集中编排、弹性伸缩、持续发布和部署，高可用及容灾。云资源集中编排、弹性伸缩、持续发布和部署，高可用及容灾。云资源集中编排、弹性伸缩、持续发布和部署，高可用及容灾。
-            </p>
+            {listChildren}
           </QueueAnim>
         </OverPack>
       </div>
     );
   }
 }
-
 
 export default Content;

@@ -7,7 +7,7 @@ import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 class Content extends React.Component {
   render() {
     const props = { ...this.props };
-    delete props.isMode;
+    delete props.isMobile;
     return (
       <OverPack
         replay
@@ -21,22 +21,6 @@ class Content extends React.Component {
           key="text"
           id={`${props.id}-wrapper`}
         >
-          <span
-            className="title"
-            key="title"
-            id={`${props.id}-title`}
-          >
-            <img width="100%" src="https://zos.alipayobjects.com/rmsportal/HqnZZjBjWRbjyMr.png" />
-          </span>
-          <p
-            key="content"
-            id={`${props.id}-content`}
-          >
-            一个高效的页面动画解决方案
-          </p>
-          <Button type="ghost" key="button" id={`${props.id}-button`}>
-            Learn More
-          </Button>
         </QueueAnim>
         <TweenOne
           animation={{ y: '-=20', yoyo: true, repeat: -1, duration: 1000 }}
@@ -52,7 +36,6 @@ class Content extends React.Component {
 
 Content.propTypes = {
   className: PropTypes.string,
-  id: PropTypes.string,
 };
 
 Content.defaultProps = {

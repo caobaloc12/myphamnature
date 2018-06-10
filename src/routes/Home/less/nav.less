@@ -3,7 +3,7 @@
 @header: header0;
 .@{header} {
   height: 64px;
-  background: @template-nav-bg-color;
+  background: #fff;
   width: 100%;
   z-index: 970;
   box-shadow: 0 5px 8px fade(#000, 15);
@@ -41,6 +41,7 @@
         width: 100px;
       }
     }
+    & .ant-menu-horizontal > .ant-menu-item-selected,
     & .ant-menu-horizontal > .ant-menu-item-active {
       color: @link-hover-color;
       border-bottom-color: @link-hover-color;

@@ -1,93 +1,101 @@
 @import './custom.less';
 
-@content1: content1;
+@content4: content4;
 
-.@{content1} {
-  &-img {
-    height: 100%;
-    width: 40%;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    span {
-      display: block;
-      position: absolute;
-      width: 55%;
-      left: 10%;
-      line-height: 50vh;
-      height: 50vh;
-      margin: auto;
-      top: 0;
-      bottom: 0;
-      img {
-        vertical-align: middle;
-      }
-    }
+.@{content4} {
+
+  &-wrapper {
+    background-color: #f3f3f3;
   }
-  &-text {
-    display: block;
-    width: 55%;
-    height: 150px;
-    vertical-align: top;
+  & > h1, & > p {
+    position: relative;
+    top: 10%;
+    text-align: center;
+  }
+  &-img-wrapper {
+    width: 98%;
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 25%;
     margin: auto;
-    & p, & h1 {
-      position: relative !important;
-      width: 75%;
-      float: right;
-    }
-    & h1 {
-      font-size: 32px;
-      font-weight: normal;
-      color: #404040;
-    }
-    & p {
-      margin-top: 20px;
+    left: 0;
+    right: 0;
+    padding: 20px 0;
+    & li {
+      width: 25%;
+      padding: 1%;
+      float: left;
+      & .content-wrapper {
+        border: 1px solid @line-color;
+        display: block;
+        background: #fff;
+        border-radius: 6px;
+        padding: 10px;
+        text-align: center;
+        height: 220px;
+        position: relative;
+        overflow: hidden;
+        .page-pro();
+        transition: box-shadow .3s @ease-out, transform .3s @ease-out;
+        & > span {
+          height: 100%;
+          display: block;
+          background: @line-color;
+          padding: 5%;
+        }
+        & p {
+          position: absolute;
+          width: 100%;
+          background: fade(@link-color, 75);
+          left: 0;
+          bottom: -30px;
+          line-height: 30px;
+          color: #fff;
+          transition: bottom .3s @ease-out, background .3s @ease-out, color .3s @ease-out, line-height .3s @ease-out;
+          & a {
+            color: #ffffff;
+          }
+        }
+        &:hover {
+          & p {
+            bottom: 0;
+          }
+        }
+      }
     }
   }
 }
 
 @media screen and (max-width: 767px) {
-  .@{content1}-wrapper {
-    height: 400px;
-    .@{content1} {
-      overflow: hidden;
+  .@{content4}-wrapper {
+    height: 2000px;
+    overflow: hidden;
+    .@{content4} {
       width: 90%;
-      margin: auto;
-      &-img, &-text {
-        width: 100%;
-        display: block;
+      > h1, > p {
         position: relative;
-        text-align: center;
+        top: 0;
       }
-      &-img {
-        margin: 20px auto;
-        height: 200px;
-        span {
-          right: 0;
-          left: 0;
-          margin: auto;
-          width: 180px;
-          height: 200px;
-          line-height: 200px;
-        }
+      > h1 {
+        font-size: 24px;
+        margin: 40px auto 20px;
       }
-      &-text {
-        height: 140px;
-        margin-top: 20px;
-        p, h1 {
+
+      ul {
+        top: 80px;
+        li {
+          display: block;
           width: 100%;
-          top: auto;
-        }
-        p {
-          margin-top: 20px;
-        }
-        h1 {
-          font-size: 24px;
+          padding: 2%;
+          span {
+            height: 168px;
+          }
+          p {
+            position: relative;
+            bottom: 0;
+          }
         }
       }
     }
   }
+
 }

@@ -1,6 +1,8 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import TweenOne from 'rc-tween-one';
 import { Menu } from 'antd';
+import logoImg from '../../assets/logo_imnature.png';
 
 const Item = Menu.Item;
 
@@ -20,9 +22,9 @@ class Header extends React.Component {
 
   render() {
     const props = { ...this.props };
-    const isMode = props.isMode;
-    delete props.isMode;
-    const navData = { menu1: '导航一', menu2: '导航二', menu3: '导航三', menu4: '导航四' };;
+    const isMobile = props.isMobile;
+    delete props.isMobile;
+    const navData = { menu1: 'Sản phẩm', menu2: 'Giới thiệu ', menu3: 'Bài viết ', menu4: 'Liên hệ ' };;
     const navChildren = Object.keys(navData)
       .map((key, i) => (<Item key={i}>{navData[key]}</Item>));
     return (<TweenOne
@@ -35,9 +37,9 @@ class Header extends React.Component {
         animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }}
         id={`${this.props.id}-logo`}
       >
-        <img width="100%" src="https://os.alipayobjects.com/rmsportal/mlcYmsRilwraoAe.svg" />
+        <img width="100%" src={logoImg} />
       </TweenOne>
-      {isMode ? (<div
+      {isMobile ? (<div
         className={`${this.props.className}-phone-nav${this.state.phoneOpen ? ' open' : ''}`}
         id={`${this.props.id}-menu`}
       >
