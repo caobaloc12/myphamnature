@@ -24,9 +24,11 @@ class Header extends React.Component {
     const props = { ...this.props };
     const isMobile = props.isMobile;
     delete props.isMobile;
-    const navData = { menu1: 'Sản phẩm', menu2: 'Giới thiệu ', menu3: 'Bài viết ', menu4: 'Liên hệ ' };;
+    const navData = { menu1: {text: 'Sản phẩm', link: '#/san-pham'}, menu2: {text: 'Giới thiệu', link: '#/gioi-thieu'}, menu3: {text: 'Bài viết', link: '#/bai-viet'}, menu4: {text: 'Liên hệ', link: '#/lien-he'} };
+
     const navChildren = Object.keys(navData)
-      .map((key, i) => (<Item key={i}>{navData[key]}</Item>));
+      .map((key, i) => (<Item key={i}><a href={navData[key].link}>{navData[key].text}</a></Item>));
+
     return (<TweenOne
       component="header"
       animation={{ opacity: 0, type: 'from' }}
@@ -37,7 +39,7 @@ class Header extends React.Component {
         animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }}
         id={`${this.props.id}-logo`}
       >
-        <img width="100%" src={logoImg} />
+        <a href="/"><img width="100%" src={logoImg} /></a>
       </TweenOne>
       {isMobile ? (<div
         className={`${this.props.className}-phone-nav${this.state.phoneOpen ? ' open' : ''}`}
@@ -57,7 +59,7 @@ class Header extends React.Component {
           className={`${this.props.className}-phone-nav-text`}
         >
           <Menu
-            defaultSelectedKeys={['0']}
+            // defaultSelectedKeys={['0']}
             mode="inline"
             theme="dark"
           >
@@ -69,7 +71,7 @@ class Header extends React.Component {
         animation={{ x: 30, type: 'from', ease: 'easeOutQuad' }}
       >
         <Menu
-          mode="horizontal" defaultSelectedKeys={['0']}
+          mode="horizontal" 
           id={`${this.props.id}-menu`}
         >
           {navChildren}

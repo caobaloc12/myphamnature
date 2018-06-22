@@ -1,0 +1,53 @@
+@import "~antd/lib/style/themes/default.less";
+
+@primary: #78aa42;
+
+.about-wrapper{
+    max-width: 1200px;
+    margin: 50px auto;
+
+    h2{
+        font-size: 35px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    p{
+        font-size: 16px;
+        margin-bottom: 10px;
+        > b{
+            margin-top: 30px;
+        }
+    }
+    ul{
+        list-style-type: disc;
+        margin-left: 30px;
+        margin-bottom: 20px;
+        li{
+            font-size: 16px;
+            line-height: 1.4;
+        }
+    }
+    img{
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 10px auto;
+    }
+    .contactBtn{
+        display: block;
+        max-width: 250px;
+        height: 50px;
+        line-height: 50px;
+        margin: 40px auto;
+        font-size: 20px;
+        background: @primary;
+        color: #ffffff;
+        border-radius: 4px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0, .4);
+        &:hover{
+            background: lighten(@primary, 10%);
+        }
+    }
+}

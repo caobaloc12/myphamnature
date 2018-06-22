@@ -17,7 +17,7 @@ class Content extends React.Component {
   };
 
   static defaultProps = {
-    className: 'content7',
+    className: 'content1',
   };
 
   getBlockChildren = (item, i) =>(
@@ -44,29 +44,24 @@ class Content extends React.Component {
         {...props}
         className={`content-template-wrapper ${props.className}-wrapper`}
       >
-        <OverPack
+        <div
           className={`content-template ${props.className}`}
-          location={props.id}
+          // location={props.id}
         >
-          <TweenOne
-            animation={{ y: '+=30', opacity: 0, type: 'from' }}
-            component="h1"
-            key="h1"
-            reverseDelay={300}
+          <h1
             id={`${props.id}-title`}
           >
              GIỚI THIỆU I'M NATURE
-             <p style={{textAlign: 'center', fontSize: 14, lineHeight: '1.6', padding: '15px 4%'}}>
+             <p style={{textAlign: 'center', fontSize: 14, lineHeight: '1.6', padding: '4%'}}>
              "...Lấy cảm hứng từ những mùi hương thiên nhiên, mộc mạc, các sản phẩm của I'm Nature luôn chú trọng đến hương thơm nhẹ nhàng, tinh tế bên cạnh những cam kết về thành phần hoàn toàn tự nhiên . Các sản phẩm của I'm Nature hiện nay rất đa dạng, từ các sản phẩm chăm sóc da, dưỡng thể, dầu gội cho đến tinh dầu,dung dịch vệ sinh ..."
              </p>
-          </TweenOne>
-          <QueueAnim
-            component="ul" type="bottom" key="block" leaveReverse
+          </h1>
+          <ul
             id={`${props.id}-contentWrapper`}
           >
             {listChildren}
-          </QueueAnim>
-        </OverPack>
+          </ul>
+        </div>
       </div>
     );
   }

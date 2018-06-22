@@ -1,29 +1,24 @@
 @import './custom.less';
 
-@content7: content7;
-.@{content7} {
+@content1: content1;
+.@{content1} {
   &-wrapper {
     min-height: 500px;
+    padding-top: 50px;
     overflow: hidden;
   }
   > h1 {
     text-align: center;
     position: relative;
-    top: 15%;
     margin: auto;
   }
   > ul {
-    position: relative;
-    top: 25%;
     padding: 20px 0;
     > li {
       width: 25%;
       padding: 0 4%;
       display: inline-block;
       text-align: center;
-      &.queue-anim-leaving {
-        position: relative !important;
-      }
       .icon {
         width: 100px;
         height: 100px;
@@ -35,22 +30,22 @@
         line-height: 32px;
         margin: 10px auto;
       }
+      > p{
+        height: 100px;
+      }
     }
   }
 }
 
 @media screen and (max-width: 767px) {
-  .@{content7}-wrapper {
-    height: 760px;
-    .@{content7} {
-      width: 90%;
+  .@{content1}-wrapper {
+    .@{content1} {
+      width: 100%;
       max-width: 100%;
       > h1{
-        top: auto;
         margin: 40px auto 20px;
       }
       > ul {
-        top: auto;
         padding: 0;
         > li{
           width: 100%;

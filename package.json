@@ -3,6 +3,7 @@
   "scripts": {
     "start": "roadhog server",
     "build": "roadhog build",
+    "db": "json-server db.json",
     "lint": "eslint --ext .js src test",
     "precommit": "npm run lint"
   },
@@ -14,12 +15,14 @@
     "babel-runtime": "^6.9.2",
     "dva": "^2.0.3",
     "enquire-js": "^0.2.1",
+    "jquery": "^3.3.1",
     "rc-banner-anim": "^1.0.0",
     "rc-queue-anim": "1.x",
     "rc-scroll-anim": "2.x",
     "rc-tween-one": "1.x",
     "react": "^15.4.0",
-    "react-dom": "^15.4.0"
+    "react-dom": "^15.4.0",
+    "react-image-zoom": "^0.7.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
