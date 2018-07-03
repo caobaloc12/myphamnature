@@ -1,5 +1,8 @@
+import $ from 'jquery';
+import { Modal } from 'antd';
+
 export function getDiscountPercent(price1, price2) {
-    return Math.round(100*(price1 - price2)/price1);
+    return Math.round(100 * (price1 - price2) / price1);
 }
 
 export function shuffle(array, elements) {
@@ -9,7 +12,7 @@ export function shuffle(array, elements) {
     let existed = [];
     for (let i = 0; i < e; i++) {
         j = Math.floor(Math.random() * (array.length));
-        if(existed.indexOf(j) === -1) {
+        if (existed.indexOf(j) === -1) {
             existed.push(j);
             result.push(array[j]);
         } else {
@@ -18,4 +21,8 @@ export function shuffle(array, elements) {
     }
 
     return result;
+}
+
+export function numberWithDot(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }

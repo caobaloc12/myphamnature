@@ -7,6 +7,7 @@ import ProductList from './routes/Product/ProductList';
 import ProductDetail from './routes/Product/ProductDetail';
 import data from './data';
 import NotFound from './routes/NotFound';
+import CartCheckout from './routes/CartCheckout';
 
 function RouterConfig({ history }) {
   return (
@@ -21,7 +22,8 @@ function RouterConfig({ history }) {
           const product = data.filter(item => item.slug === slug)[0];
           return <ProductDetail product={product}/>
         }} />
-        <Route path="*" component={NotFound} />>
+        <Route path="/gio-hang" exact component={CartCheckout} />
+        <Route path="*" component={NotFound} />
       </Switch>
     </Router>
   );

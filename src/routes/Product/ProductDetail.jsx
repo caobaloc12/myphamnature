@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'dva';
 import { enquireScreen } from 'enquire-js';
 import ReactImageZoom from 'react-image-zoom';
 import { Row, Col, Breadcrumb, Icon, InputNumber, Button, Message, Modal } from 'antd';
 import $ from 'jquery';
+import _ from 'lodash';
 
 import { getDiscountPercent, shuffle } from '../../utils/util';
 import Nav from '../Home/Nav';
@@ -11,11 +13,17 @@ import PurchaseModal from './PurchaseModal';
 import ProductRelated from './ProductRelated';
 import data from '../../data';
 import './product.less';
+import Cart from '../Cart';
 
 let isMobile;
 enquireScreen((b) => {
   isMobile = b;
 });
+
+const posts = [
+    "https://www.facebook.com/caobaloc90/posts/1002437343256547",
+    "https://www.facebook.com/caobaloc90/posts/1002216713278610"
+];
 
 class ProductDetail extends React.Component {
     constructor(props) {
@@ -56,9 +64,9 @@ class ProductDetail extends React.Component {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
+            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.0&appId=550810631745131&autoLogAppEvents=1';
             fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+          }(document, 'script', 'facebook-jssdk'));
     }
 
     componentDidUpdate() {
@@ -75,56 +83,14 @@ class ProductDetail extends React.Component {
     }
 
     handlePurchase = (values) => {
-        const url = "https://docs.google.com/forms/d/e/1FAIpQLSeB9fimEskgBHOHa7rB7ci7ePgM-8mHCfl66t5l9N4sLczF4g/formResponse";
-        const product = data.filter(item => item.id === values.product);
-
-        const postData = {
-            "entry.1545390167": values.name, 
-            "entry.1754734183": values.phone,
-            "entry.646369243": values.email,
-            "entry.1732211460": product[0].tenSp,
-            "entry.1832057127": values.address,
-            "entry.227536673": values.quantity,
-            "entry.1662075176": values.note, 
+        const { dispatch, product, list } = this.props;
+        const { quantity } = this.state;
+        const index = _.findIndex(list, { id: product.id });
+        if(index > -1) {
+            list.splice(index, 1);
         }
-
-        $.ajax({
-            url: url,
-            method: "POST",
-            dataType: "xml",
-            data: postData,
-            statusCode: {
-                0: () => {
-                    Modal.success({
-                        title: "Đặt hàng thành công",
-                        okText: "OK",
-                        content: (
-                            <p>
-                                Cảm ơn bạn đã đặt hàng của chúng tôi! Chúng tôi sẽ gọi điện tư vấn cho bạn trong thời gian sớm nhất!
-                            </p>
-                        ),
-                        onOk() {
-                            console.log('ok');
-                        }
-                    })
-                },
-                200: () => {
-                    Modal.success({
-                        title: "Đặt hàng thành công",
-                        okText: "OK",
-                        content: (
-                            <p>
-                                Cảm ơn bạn đã đặt hàng của chúng tôi! Chúng tôi sẽ gọi điện tư vấn cho bạn trong thời gian sớm nhất!
-                            </p>
-                        ),
-                        onOk() {
-                            console.log('ok');
-                        }
-                    })
-                }
-            }
-        })
-        
+        list.push({ quantity, ...product });
+        dispatch({ type: 'cart/add', payload: { list }});
     }
 
     renderChildren = (data) => {
@@ -142,9 +108,11 @@ class ProductDetail extends React.Component {
     render() {
         const { product } = this.props;
         const zoomImgDefaultProps = { width: 250, height: 250, zoomWidth: 300, img: product.img };
+        let dataHref = window.location.href;
 
         return (
             <div className="templates-wrapper">
+                <Cart />
                 <Nav id="nav_0_0" key="nav_0_0" isMobile={this.state.isMobile}/>
                 <div className="product-detail-wrapper">
                     <Breadcrumb>
@@ -182,9 +150,9 @@ class ProductDetail extends React.Component {
                                 <li><Icon type="check" />Giao hàng 12h nội thành TP. HCM</li>
                             </ul>
                             <InputNumber min={1} max={100} defaultValue={1} size="large" onChange={this.handleInputChange} />
-                            <PurchaseModal onOk={this.handlePurchase} productId={product.id} quantity={this.state.quantity} >
-                                <Button className="btn-purchase" size="large">ĐẶT MUA</Button>
-                            </PurchaseModal>
+                            {/* <PurchaseModal onOk={this.handlePurchase} productId={product.id} quantity={this.state.quantity} >
+                            </PurchaseModal> */}
+                            <Button className="btn-purchase" size="large" onClick={this.handlePurchase}>THÊM VÀO GIỎ HÀNG </Button>
                         </Col>
                     </Row>
                     <Row className="product-detail-fullinfo">
@@ -204,7 +172,7 @@ class ProductDetail extends React.Component {
                     <Row>
                         <Col>
                             <div>
-                                <div className="fb-comments" data-href="https://www.facebook.com/cna.net.au/" data-numposts="10" width="100%"></div>
+                                <div className="fb-comments" data-href={dataHref} data-numposts="10" width="100%"></div>
                             </div>
                         </Col> 
                     </Row>
@@ -218,4 +186,11 @@ class ProductDetail extends React.Component {
     }
 }
 
-export default ProductDetail;
+function mapStateToProps(state) {
+    const { cart } = state;
+    return {
+        list: cart.list
+    }
+}
+
+export default connect(mapStateToProps)(ProductDetail);

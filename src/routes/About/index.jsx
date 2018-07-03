@@ -7,6 +7,7 @@ import Footer from '../Home/Footer';
 import './about.less';
 import aboutImg1 from '../../assets/about_img1.png';
 import aboutImg2 from '../../assets/about_img2.jpg';
+import Cart from '../Cart';
 
 let isMobile;
 enquireScreen((b) => {
@@ -61,7 +62,8 @@ class About extends React.Component {
     render() {
         return (
             <div className="templates-wrapper">
-                <Nav id="nav_0_0" key="nav_0_0" isMobile={this.state.isMobile}/>
+                <Cart />
+                <Nav id="nav_0_0" key="nav_0_0" isMobile={this.state.isMobile} />
                 <div className="about-wrapper">
                     <Row>
                         <Col xs={{ span: 22, offset: 1 }} md={{ span: 16, offset: 4 }}>

@@ -7,6 +7,7 @@ import Nav from '../Home/Nav';
 import Footer from '../Home/Footer';
 import './product.less';
 import ProductItem from './ProductItem';
+import Cart from '../Cart';
 const { Option } = Select;
 
 let isMobile;
@@ -88,7 +89,8 @@ class ProductList extends React.Component {
 
         return (
             <div className="templates-wrapper" style={{background: '#f2f2f2'}}>
-                <Nav id="nav_0_0" key="nav_0_0" isMobile={this.state.isMobile}/>
+                <Cart />
+                <Nav id="nav_0_0" key="nav_0_0" isMobile={this.state.isMobile} />
                 <div className="product-list-wrapper">
                     <Breadcrumb>
                         <Breadcrumb.Item><a href="/">Trang chủ </a></Breadcrumb.Item>

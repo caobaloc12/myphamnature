@@ -6,6 +6,7 @@ import Nav from '../Home/Nav';
 import Footer from '../Home/Footer';
 import FormDangky from '../Home/FormDangky';
 import '../Home/less/antMotion_style.less';
+import Cart from '../Cart';
 
 let isMobile;
 enquireScreen((b) => {
@@ -36,12 +37,24 @@ class Contact extends React.Component {
     }
 
     render() {
+        const { isMobile } = this.state;
         return (
             <div className="templates-wrapper">
-                <Nav id="nav_0_0" key="nav_0_0" isMobile={this.state.isMobile}/>
+                <Cart />
+                <Nav id="nav_0_0" key="nav_0_0" isMobile={isMobile}/>
                 <Row className="formDangky">
                     <Col xs={24} md={{ span: 12, offset: 6 }} >
-                        <h2 style={{textAlign: 'center', marginBottom: 40}}>Vui lòng để lại thông tin và thuốc mà bạn quan tâm để được tư vấn </h2>
+                        <h2 
+                            style={{
+                                textAlign: 'center', 
+                                marginTop: 40,
+                                marginBottom: 40,
+                                marginLeft: isMobile ? 0: 120,
+                                fontSize: isMobile ? 20: 30
+                            }}
+                        >
+                            Vui lòng để lại thông tin và thuốc mà bạn quan tâm để được tư vấn 
+                        </h2>
                         <FormDangky />
                     </Col>
                 </Row>

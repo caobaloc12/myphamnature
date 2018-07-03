@@ -8,60 +8,14 @@ const Option = Select.Option;
 class FormDangky extends React.Component {
 
   handleSubmit = (e) => {
-    e.preventDefault();
+    const { form, onCheckout } = this.props;
     const _this = this;
-    this.props.form.validateFields((err, values) => {
+
+    e.preventDefault();
+
+    form.validateFields((err, values) => {
       if (!err) {
-        const url = "https://docs.google.com/forms/d/e/1FAIpQLSeB9fimEskgBHOHa7rB7ci7ePgM-8mHCfl66t5l9N4sLczF4g/formResponse";
-        const product = data.filter(item => item.id === values.product);
-
-        const postData = {
-            "entry.1545390167": values.name, 
-            "entry.1754734183": values.phone,
-            "entry.646369243": values.email,
-            "entry.1732211460": product[0].tenSp,
-            "entry.1832057127": values.address,
-            "entry.227536673": values.quantity,
-            "entry.1662075176": values.note, 
-        }
-
-        $.ajax({
-            url: url,
-            method: "POST",
-            dataType: "xml",
-            data: postData,
-            statusCode: {
-                0: () => {
-                  Modal.success({
-                    title: 'Gửi liên hệ thành công!',
-                    okText: 'OK',
-                    content: (
-                      <div>
-                        <p>Cảm ơn bạn đã liên vệ với chúng tôi. </p>
-                        <p>Chúng tôi sẽ gọi điện tư vấn cho bạn trong thời gian sớm nhất! </p>
-                      </div>
-                    ),
-                    onOk() {
-                      _this.props.form.resetFields();
-                    },
-                  });
-                },
-                200: () => {
-                  Modal.success({
-                    title: 'Gửi liên hệ thành công!',
-                    content: (
-                      <div>
-                        <p>Cảm ơn bạn đã liên vệ với chúng tôi. </p>
-                        <p>Chúng tôi sẽ gọi điện tư vấn cho bạn trong thời gian sớm nhất! </p>
-                      </div>
-                    ),
-                    onOk() {
-                      _this.props.form.resetFields();
-                    },
-                  });
-                }
-            }
-        })
+        onCheckout(values);
       }
     });
   }
@@ -75,7 +29,8 @@ class FormDangky extends React.Component {
   }
 
   render() {
-    const { getFieldDecorator } = this.props.form;
+    const { form, isCheckout, disabledSubmit } = this.props;
+    const { getFieldDecorator } = form;
     const formItemLayout = {
       labelCol: { span: 6 },
       wrapperCol: { span: 18 },
@@ -110,7 +65,9 @@ class FormDangky extends React.Component {
             <Input />
           )}
         </FormItem>
-        <FormItem
+        {
+          !isCheckout ?
+        (<FormItem
           label="Sản phẩm "
           {...formItemLayout}
         >
@@ -132,7 +89,9 @@ class FormDangky extends React.Component {
               <Option value="sp9">Serum làm hồng nhũ hoa và vũng kín</Option>
             </Select>
           )}
-        </FormItem>
+        </FormItem>)
+        : null
+        }
         <FormItem
           label="Địa chỉ "
           {...formItemLayout}
@@ -145,14 +104,14 @@ class FormDangky extends React.Component {
           label="Ghi chú "
           {...formItemLayout}
         >
-          {getFieldDecorator('note')(
+          {getFieldDecorator('remarks')(
             <Input />
           )}
         </FormItem>
         <FormItem
           wrapperCol={{ span: 18, offset: 6 }}
         >
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" disabled={disabledSubmit}>
             Gửi 
           </Button>
           <Button onClick={this.handleCancel} style={{ marginLeft: 10 }}>

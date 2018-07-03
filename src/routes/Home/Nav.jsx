@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TweenOne from 'rc-tween-one';
-import { Menu } from 'antd';
+import { Menu, Badge, Icon } from 'antd';
 import logoImg from '../../assets/logo_imnature.png';
+
 
 const Item = Menu.Item;
 
@@ -59,7 +60,6 @@ class Header extends React.Component {
           className={`${this.props.className}-phone-nav-text`}
         >
           <Menu
-            // defaultSelectedKeys={['0']}
             mode="inline"
             theme="dark"
           >
@@ -90,5 +90,6 @@ Header.propTypes = {
 Header.defaultProps = {
   className: 'header0',
 };
+
 
 export default Header;

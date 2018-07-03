@@ -1,13 +1,16 @@
 import React from 'react';
 import { enquireScreen } from 'enquire-js';
+import { Collapse } from 'antd';
 import Nav from './Nav';
 import Content0 from './Content0';
 import Content1 from './Content1';
 import Content2 from './Content2';
 import Content3 from './Content3';
 import Footer from './Footer';
+const Panel = Collapse.Panel;
 
 import './less/antMotion_style.less';
+import Cart from '../Cart';
 
 let isMobile;
 enquireScreen((b) => {
@@ -38,7 +41,7 @@ export default class Home extends React.Component {
 
   render() {
     const children = [
-      <Nav id="nav_0_0" key="nav_0_0" isMobile={this.state.isMobile}/>,
+      <Nav id="nav_0_0" key="nav_0_0" />,
       <Content0 id="content_0_0" key="content_0_0" isMobile={this.state.isMobile}/>,
       <Content1 id="content_1_0" key="content_1_0" isMobile={this.state.isMobile}/>,
       <Content2 id="content_2_0" key="content_2_0" isMobile={this.state.isMobile}/>,
@@ -47,8 +50,10 @@ export default class Home extends React.Component {
     ];
     return (
       <div className="templates-wrapper">
+        <Cart />
         {this.state.show && children}
       </div>
+
     );
   }
 }
