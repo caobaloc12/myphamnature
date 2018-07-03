@@ -3,7 +3,7 @@ import { connect } from 'dva';
 import { enquireScreen } from 'enquire-js';
 import ReactImageZoom from 'react-image-zoom';
 import { Row, Col, Breadcrumb, Icon, InputNumber, Button, Message, Modal } from 'antd';
-import $ from 'jquery';
+import {Helmet} from "react-helmet";
 import _ from 'lodash';
 
 import { getDiscountPercent, shuffle } from '../../utils/util';
@@ -36,7 +36,6 @@ class ProductDetail extends React.Component {
     }
 
     componentDidMount() {
-        document.title = this.props.product.tenSp;
         window.scrollTo(0, 0);
         enquireScreen((b) => {
           this.setState({ isMobile: !!b });
@@ -52,7 +51,7 @@ class ProductDetail extends React.Component {
 
         window.fbAsyncInit = function() {
             FB.init({
-                appId      : '115517331888071',
+                appId      : '275065773064671',
                 cookie     : true,  // enable cookies to allow the server to access the session
                 xfbml      : true,  // parse social plugins on this page
                 version    : 'v2.5' // use version 2.1
@@ -74,7 +73,6 @@ class ProductDetail extends React.Component {
     }
 
     componentWillReceiveProps({ product }) {
-        document.title = product.tenSp;
         window.scrollTo(0, 0);
     }
 
@@ -82,7 +80,7 @@ class ProductDetail extends React.Component {
         this.setState({ quantity: value });
     }
 
-    handlePurchase = (values) => {
+    handlePurchase = () => {
         const { dispatch, product, list } = this.props;
         const { quantity } = this.state;
         const index = _.findIndex(list, { id: product.id });
@@ -112,6 +110,14 @@ class ProductDetail extends React.Component {
 
         return (
             <div className="templates-wrapper">
+                <Helmet>
+                    <title>{product.tenSp}</title>
+                    <link rel="canonical" href="http://mysite.com/example" />
+                    <meta property="og:url"                content={dataHref} />
+                    <meta property="og:type"               content="website" />
+                    <meta property="og:title"              content={product.tenSp}/>
+                    <meta property="og:description"        content={product.tenSp} />
+                </Helmet>
                 <Cart />
                 <Nav id="nav_0_0" key="nav_0_0" isMobile={this.state.isMobile}/>
                 <div className="product-detail-wrapper">

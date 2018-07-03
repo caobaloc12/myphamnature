@@ -25,6 +25,7 @@ class About extends React.Component {
 
     componentDidMount() {
         document.title = "Giới thiệu về I'm Nature";
+        
         enquireScreen((b) => {
           this.setState({ isMobile: !!b });
         });
@@ -36,27 +37,6 @@ class About extends React.Component {
           }, 500);
         } 
 
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId      : '115517331888071',
-                cookie     : true,  // enable cookies to allow the server to access the session
-                xfbml      : true,  // parse social plugins on this page
-                version    : 'v2.5' // use version 2.1
-            });
-        }.bind(this);
-
-        // Load the SDK asynchronously
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    }
-
-    componentDidUpdate() {
-        FB.XFBML.parse();
     }
 
     render() {
@@ -101,10 +81,6 @@ class About extends React.Component {
                                 phẩm giúp thương hiệu của I’m nature đứng vững trong mắt người tiêu dùng.</p>
                             <p>Liên hệ ngay với chúng tôi để được tư vấn về sản phẩm mà bạn quan tâm</p>
                             <a href="#/lien-he" target="_blank" className="contactBtn" >Liên hệ ngay!</a>
-
-                            <div>
-                                <div className="fb-comments" data-href="https://www.facebook.com/cna.net.au/" data-numposts="10" width="100%"></div>
-                            </div>
                         </Col>
                     </Row>
                 </div>
