@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TweenOne from 'rc-tween-one';
-import { Menu, Badge, Icon } from 'antd';
+import { Menu } from 'antd';
 import logoImg from '../../assets/logo_imnature.png';
-
 
 const Item = Menu.Item;
 
@@ -26,6 +25,7 @@ class Header extends React.Component {
     const isMobile = props.isMobile;
     delete props.isMobile;
     const navData = { menu1: {text: 'Sản phẩm', link: '#/san-pham'}, menu2: {text: 'Giới thiệu', link: '#/gioi-thieu'}, menu3: {text: 'Bài viết', link: '#/bai-viet'}, menu4: {text: 'Liên hệ', link: '#/lien-he'} };
+    console.log(isMobile);
 
     const navChildren = Object.keys(navData)
       .map((key, i) => (<Item key={i}><a href={navData[key].link}>{navData[key].text}</a></Item>));

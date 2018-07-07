@@ -41,7 +41,7 @@ export default class Home extends React.Component {
 
   render() {
     const children = [
-      <Nav id="nav_0_0" key="nav_0_0" />,
+      <Nav id="nav_0_0" key="nav_0_0" isMobile={this.state.isMobile} />,
       <Content0 id="content_0_0" key="content_0_0" isMobile={this.state.isMobile} />,
       <Content1 id="content_1_0" key="content_1_0" isMobile={this.state.isMobile} />,
       <Content2 id="content_2_0" key="content_2_0" isMobile={this.state.isMobile} />,
