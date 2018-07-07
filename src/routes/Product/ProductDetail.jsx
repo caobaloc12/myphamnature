@@ -19,11 +19,6 @@ enquireScreen((b) => {
   isMobile = b;
 });
 
-const posts = [
-    "https://www.facebook.com/caobaloc90/posts/1002437343256547",
-    "https://www.facebook.com/caobaloc90/posts/1002216713278610"
-];
-
 class ProductDetail extends React.Component {
     constructor(props) {
         super(props);
@@ -62,7 +57,7 @@ class ProductDetail extends React.Component {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.0&appId=550810631745131&autoLogAppEvents=1';
+            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.0&appId=275065773064671&autoLogAppEvents=1';
             fjs.parentNode.insertBefore(js, fjs);
           }(document, 'script', 'facebook-jssdk'));
     }
@@ -121,7 +116,7 @@ class ProductDetail extends React.Component {
                 <div className="product-detail-wrapper">
                     <Breadcrumb>
                         <Breadcrumb.Item><a href="/">Trang chủ </a></Breadcrumb.Item>
-                        <Breadcrumb.Item><a href="/san-pham">Sản phẩm </a></Breadcrumb.Item>
+                        <Breadcrumb.Item><a href="#/san-pham">Sản phẩm </a></Breadcrumb.Item>
                         <Breadcrumb.Item>{product.tenSp}</Breadcrumb.Item>
                     </Breadcrumb>
                     <Row className="product-detail-overview">

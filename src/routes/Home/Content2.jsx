@@ -26,7 +26,7 @@ class Content extends React.Component {
       <div className="content-wrapper">
         <span><img src={ProductImages[item.id]} height="100%" /></span>
         <p>
-          <a href={`/san-pham/${item.slug}`}>{item.tenSp}</a>
+          <a href={`#/san-pham/${item.slug}`}>{item.tenSp}</a>
         </p>
       </div>
     </li>);
@@ -35,7 +35,7 @@ class Content extends React.Component {
   getMobileChildren = (item, index) => {
     return (
       <Col key={index} xs={{ span: 24 }}>
-          <a href={`/san-pham/${item.slug}`}>
+          <a href={`#/san-pham/${item.slug}`}>
               <Card title={null} className="product-item">
                   <img src={item.img} alt={item.tenSp} />
                   <div className="content">

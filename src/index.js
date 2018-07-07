@@ -1,20 +1,20 @@
 import dva from 'dva';
-import createHistory from 'history/createBrowserHistory';
-import { message } from 'antd';
-import './index.css';
+// import createHistory from 'history/createBrowserHistory';
+// import { message } from 'antd';
+// import './index.css';
 
 // 1. Initialize
-// const app = dva();
+const app = dva();
 
-const ERROR_MSG_DURATION = 3; // 3 秒
+// const ERROR_MSG_DURATION = 3; // 3 秒
 
 // 1. Initialize
-const app = dva({
-  history: createHistory(),
-  onError(e) {
-    message.error(e.message, ERROR_MSG_DURATION);
-  },
-});
+// const app = dva({
+//   history: createHistory(),
+//   onError(e) {
+//     message.error(e.message, ERROR_MSG_DURATION);
+//   },
+// });
 
 // 2. Plugins
 // app.use({});

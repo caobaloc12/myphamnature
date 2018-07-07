@@ -150,7 +150,7 @@ class CartCheckout extends React.Component {
                 <div className="cart-detail-wrapper" style={{ maxWidth: 960, margin: '15px auto', padding: 15 }}>
                     <Breadcrumb>
                         <Breadcrumb.Item><a href="/">Trang chủ </a></Breadcrumb.Item>
-                        <Breadcrumb.Item><a href="/gio-hang">Giỏ hàng </a></Breadcrumb.Item>
+                        <Breadcrumb.Item><a href="#/gio-hang">Giỏ hàng </a></Breadcrumb.Item>
                         <Breadcrumb.Item>Thông tin giỏ hàng </Breadcrumb.Item>
                     </Breadcrumb>
                     <Row className="cart-wrapper">
@@ -162,7 +162,7 @@ class CartCheckout extends React.Component {
                     </Row>
                     <Row>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                            <a href="/san-pham" style={{ marginTop: 8 }}><Icon type="shopping-cart" style={{ fontSize: 16, marginRight: 4 }} /> Tiếp tục mua sắm </a>
+                            <a href="#/san-pham" style={{ marginTop: 8 }}><Icon type="shopping-cart" style={{ fontSize: 16, marginRight: 4 }} /> Tiếp tục mua sắm </a>
                             <p style={{ fontSize: 25, textAlign: 'right' }}>
                                 {`Tổng cộng: ${this.getTotalRevenue(list)} đ`}
                             </p>

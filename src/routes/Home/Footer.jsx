@@ -13,19 +13,20 @@ class Footer extends React.Component {
   };
 
   componentDidMount() {
-
+    console.log('componentDidMount');
     // Load the SDK asynchronously
     (function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.0&appId=550810631745131&autoLogAppEvents=1';
+      js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.0&appId=275065773064671&autoLogAppEvents=1';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+    window.FB && window.FB.XFBML.parse();
   }
 
   componentDidUpdate() {
-    window.FB && window.FB.XFBML.parse();
+    console.log('componentDidUpdate');
   }
 
   render() {
@@ -52,8 +53,8 @@ class Footer extends React.Component {
           <li key="huongdan">
             <h2>Hướng dẫn </h2>
             <ul>
-              <li><a href="/huong-dan#mua-hang">Hướng dẫn mua hàng  </a></li>
-              <li><a href="/huong-dan#bank-info">Thông tin tài khoản </a></li>
+              <li><a href="#/huong-dan#mua-hang">Hướng dẫn mua hàng  </a></li>
+              <li><a href="#/huong-dan#bank-info">Thông tin tài khoản </a></li>
               <li><a>Chính sách đổi trả </a></li>
             </ul>
           </li>

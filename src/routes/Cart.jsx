@@ -15,7 +15,7 @@ class Cart extends Component {
         return (
             <Tooltip title="Giỏ hàng" placement="leftBottom">
                 <div style={{position: 'fixed', right: 25, top: 18, zIndex: 980}}>
-                    <a href="/gio-hang">
+                    <a href="#/gio-hang">
                     <Icon style={{ fontSize: 28 }} type="shopping-cart" /><Badge count={list.length} style={{marginTop: -10, marginLeft: 5}} />
                     </a>
                 </div>
