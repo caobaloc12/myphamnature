@@ -4,10 +4,12 @@ import { Row, Col, Button } from 'antd';
 
 import Nav from '../Home/Nav';
 import Footer from '../Home/Footer';
+import Cart from '../Cart';
 import './about.less';
 import aboutImg1 from '../../assets/about_img1.png';
 import aboutImg2 from '../../assets/about_img2.jpg';
-import Cart from '../Cart';
+import ogImg from '../../assets/ogImg.jpg';
+import { MetaTags } from 'react-meta-tags';
 
 let isMobile;
 enquireScreen((b) => {
@@ -24,8 +26,6 @@ class About extends React.Component {
     }
 
     componentDidMount() {
-        document.title = "Giới thiệu về I'm Nature";
-        
         enquireScreen((b) => {
           this.setState({ isMobile: !!b });
         });
@@ -42,6 +42,13 @@ class About extends React.Component {
     render() {
         return (
             <div className="templates-wrapper">
+                <MetaTags>
+                    <title>Giới thiệu về I'm Nature</title>
+                    <meta name="description" content="Mỹ phẩm I'm Nature - 100% Thiên Nhiên - Cam kết chất lượng - Giá cả phải chăng - Không tác dụng phụ. MUA NGAY!" />
+                    <meta property="og:title" content="Giới thiệu về I'm Nature"/>
+                    <meta property="og:url" content={window.location.href} />
+                    <meta property="og:image" content={ogImg} />
+                </MetaTags>
                 <Cart />
                 <Nav id="nav_0_0" key="nav_0_0" isMobile={this.state.isMobile} />
                 <div className="about-wrapper">
@@ -80,7 +87,7 @@ class About extends React.Component {
                                 rất nhiều nhà phân phối trên toàn quốc tin tưởng. Chính cái tâm trong việc tạo nên chất lượng của sản 
                                 phẩm giúp thương hiệu của I’m nature đứng vững trong mắt người tiêu dùng.</p>
                             <p>Liên hệ ngay với chúng tôi để được tư vấn về sản phẩm mà bạn quan tâm</p>
-                            <a href="#/lien-he" target="_blank" className="contactBtn" >Liên hệ ngay!</a>
+                            <a href="/lien-he" target="_blank" className="contactBtn" >Liên hệ ngay!</a>
                         </Col>
                     </Row>
                 </div>

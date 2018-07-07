@@ -25,7 +25,7 @@ class Footer extends React.Component {
   }
 
   componentDidUpdate() {
-    FB && FB.XFBML.parse();
+    window.FB && window.FB.XFBML.parse();
   }
 
   render() {
@@ -43,18 +43,18 @@ class Footer extends React.Component {
           <li key="danhmuc">
             <h2>Danh mục</h2>
             <ul>
-              <li><a href="">Dành cho bé </a></li>
-              <li><a href="">Dành cho mẹ </a></li>
-              <li><a href="">Chăm sóc tóc </a></li>
-              <li><a href="">Chăm sóc da</a></li>
+              <li><a>Dành cho bé </a></li>
+              <li><a>Dành cho mẹ </a></li>
+              <li><a>Chăm sóc tóc </a></li>
+              <li><a>Chăm sóc da</a></li>
             </ul>
           </li>
           <li key="huongdan">
             <h2>Hướng dẫn </h2>
             <ul>
-              <li><a href="">Hướng dẫn mua hàng  </a></li>
-              <li><a href="">Hướng dẫn thanh toán  </a></li>
-              <li><a href="">Chính sách đổi trả </a></li>
+              <li><a href="/huong-dan#mua-hang">Hướng dẫn mua hàng  </a></li>
+              <li><a href="/huong-dan#bank-info">Thông tin tài khoản </a></li>
+              <li><a>Chính sách đổi trả </a></li>
             </ul>
           </li>
           <li key="ketnoi" className="fbpage">

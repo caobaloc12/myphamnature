@@ -4,7 +4,7 @@ import { getDiscountPercent } from '../../utils/util';
 
 const ProductItem = ({ item }) => {
     return (
-        <a href={`#/san-pham/${item.slug}`}>
+        <a href={`/san-pham/${item.slug}`}>
             <Card title={null} className="product-item">
                 <img src={item.img} alt={item.tenSp} />
                 <div className="content">

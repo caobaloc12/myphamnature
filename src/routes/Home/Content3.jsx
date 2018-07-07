@@ -16,21 +16,49 @@ class Content extends React.Component {
       autoplay: true,
       speed: 500,
       slidesToShow: 3,
-      slidesToScroll: 1,
+      slidesToScroll: 3,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: false
+          }
+        },
+      ]
     };
 
     return (
-        <div className={`${this.props.className}-slider`}>
-            <h2 style={{textAlign: 'center', marginBottom: 40}}>Feedback </h2>
-               <Slider {...settings} >
-                <img src={FeedbackImg[0]} alt=""/>
-                <img src={FeedbackImg[1]} alt=""/>
-                <img src={FeedbackImg[2]} alt=""/>
-                <img src={FeedbackImg[3]} alt=""/>
-                <img src={FeedbackImg[4]} alt=""/>
-                <img src={FeedbackImg[5]} alt=""/>
-              </Slider>
-        </div>
+        <Row className={`${this.props.className}-slider`}>
+          <Col span={18} offset={3}>
+            <h2 style={{textAlign: 'center', marginBottom: 40, marginTop: 20}}>Khách hàng phản hồi </h2>
+              <Slider {...settings} >
+              {/* <img src={FeedbackImg[0]} alt=""/> */}
+              {/* <img src={FeedbackImg[1]} alt=""/> */}
+              <img src={FeedbackImg[2]} alt=""/>
+              <img src={FeedbackImg[3]} alt=""/>
+              <img src={FeedbackImg[4]} alt=""/>
+              <img src={FeedbackImg[5]} alt=""/>
+              <img src={FeedbackImg[6]} alt=""/>
+              <img src={FeedbackImg[6]} alt=""/>
+              <img src={FeedbackImg[7]} alt=""/>
+              <img src={FeedbackImg[8]} alt=""/>
+              <img src={FeedbackImg[9]} alt=""/>
+              <img src={FeedbackImg[10]} alt=""/>
+              <img src={FeedbackImg[11]} alt=""/>
+              <img src={FeedbackImg[12]} alt=""/>
+              <img src={FeedbackImg[13]} alt=""/>
+              <img src={FeedbackImg[14]} alt=""/>
+              <img src={FeedbackImg[15]} alt=""/>
+              <img src={FeedbackImg[16]} alt=""/>
+              <img src={FeedbackImg[17]} alt=""/>
+              <img src={FeedbackImg[18]} alt=""/>
+              <img src={FeedbackImg[19]} alt=""/>
+            </Slider>
+          </Col>
+        </Row>
     );
   }
 }

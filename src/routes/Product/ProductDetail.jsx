@@ -3,13 +3,12 @@ import { connect } from 'dva';
 import { enquireScreen } from 'enquire-js';
 import ReactImageZoom from 'react-image-zoom';
 import { Row, Col, Breadcrumb, Icon, InputNumber, Button, Message, Modal } from 'antd';
-import {Helmet} from "react-helmet";
 import _ from 'lodash';
+import { MetaTags } from 'react-meta-tags';
 
 import { getDiscountPercent, shuffle } from '../../utils/util';
 import Nav from '../Home/Nav';
 import Footer from '../Home/Footer';
-import PurchaseModal from './PurchaseModal';
 import ProductRelated from './ProductRelated';
 import data from '../../data';
 import './product.less';
@@ -50,7 +49,7 @@ class ProductDetail extends React.Component {
         } 
 
         window.fbAsyncInit = function() {
-            FB.init({
+            window.FB.init({
                 appId      : '275065773064671',
                 cookie     : true,  // enable cookies to allow the server to access the session
                 xfbml      : true,  // parse social plugins on this page
@@ -69,7 +68,7 @@ class ProductDetail extends React.Component {
     }
 
     componentDidUpdate() {
-        FB && FB.XFBML.parse();
+        window.FB && window.FB.XFBML.parse();
     }
 
     componentWillReceiveProps({ product }) {
@@ -106,24 +105,23 @@ class ProductDetail extends React.Component {
     render() {
         const { product } = this.props;
         const zoomImgDefaultProps = { width: 250, height: 250, zoomWidth: 300, img: product.img };
-        let dataHref = window.location.href;
 
         return (
             <div className="templates-wrapper">
-                <Helmet>
+                <MetaTags>
                     <title>{product.tenSp}</title>
-                    <link rel="canonical" href="http://mysite.com/example" />
-                    <meta property="og:url"                content={dataHref} />
-                    <meta property="og:type"               content="website" />
-                    <meta property="og:title"              content={product.tenSp}/>
-                    <meta property="og:description"        content={product.tenSp} />
-                </Helmet>
+                    <meta name="description" content="Mỹ phẩm I'm Nature - 100% Thiên Nhiên - Cam kết chất lượng - Giá cả phải chăng - Không tác dụng phụ. MUA NGAY!" />
+                    <meta property="og:title" content={product.tenSp}/>
+                    <meta property="og:url" content={window.location.href} />
+                    <meta property="og:image" content={product.img} />
+                </MetaTags>
+                
                 <Cart />
                 <Nav id="nav_0_0" key="nav_0_0" isMobile={this.state.isMobile}/>
                 <div className="product-detail-wrapper">
                     <Breadcrumb>
                         <Breadcrumb.Item><a href="/">Trang chủ </a></Breadcrumb.Item>
-                        <Breadcrumb.Item><a href="#/san-pham">Sản phẩm </a></Breadcrumb.Item>
+                        <Breadcrumb.Item><a href="/san-pham">Sản phẩm </a></Breadcrumb.Item>
                         <Breadcrumb.Item>{product.tenSp}</Breadcrumb.Item>
                     </Breadcrumb>
                     <Row className="product-detail-overview">
@@ -178,7 +176,7 @@ class ProductDetail extends React.Component {
                     <Row>
                         <Col>
                             <div>
-                                <div className="fb-comments" data-href={dataHref} data-numposts="10" width="100%"></div>
+                                <div className="fb-comments" data-href={window.location.href} data-numposts="10" width="100%"></div>
                             </div>
                         </Col> 
                     </Row>

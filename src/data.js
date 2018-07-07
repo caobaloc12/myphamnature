@@ -111,12 +111,38 @@ const data = [
         thanhphan: "Trị thâm làm hồng:Dầu hạnh nhân và dầu gấc giúp tẩy tế bào da chết, giảm thâm sạm, giúp vùng kín và nhũ hoa trở nên hồng hào.\nPhục hồi trẻ hóa: Dầu oliu và dầu dừa, Vitamin E bổ sung dưỡng chất giúp tái tạo làn da, xóa mờ và giảm thiểu các vết nhăn.",
         huongdanSd: "Vệ sinh sạch vùng ngực và vùng kín bằng khăn sạch. Lấy lượng serum vừa đủ thoa đều 2 đầu nhũ hoa và vùng kín, thích hợp nhất ngày 1 lần đặn mỗi ngày để có kết quả tốt nhất.\nLưu ý:\nBạn nên ăn loại rau tốt cho nhũ hoa như: rau cải, rau lang... và những thực thẩm giàu vitamin và protein như: cá, trứng, sữa, đậu nành, Đồng thời khi bạn đang trong quá trình sử dụng Serum I'm Nature bạn nên hạn chế sử dụng những thực phẩm có thể làm nhũ hoa, vùng kín thâm sạm hơn như: trà và cà phê.\nBạn nên sử dụng cùng với I'm Nature trầu không ( dung dịch vệ sinh phụ nữ i'm nature ) COMBO THẦN THÁNH - giúp \"Cô bé\" sạch hồng, chồng yêu ngây ngất.",
         giaKm: "365.000",
-        giaGoc: "4530.000",
+        giaGoc: "430.000",
         img: ProductImages['sp9'],
         slug: 'serum-lam-hong-nhu-hoa-vung-kin',
         category: [5, 7],
         currency: "đ"
-    }
+    },
+    {
+        id: 'sp10',
+        tenSp: 'Kem chống nắng I’m Nature',
+        mota: 'Kem chống nắng I’m Nature với thành phần dầu quả bơ, dầu hướng dương, chiết xuất cúc La Mã, chiết xuất mật ong, vitamin E Acetate,… chỉ số chống nắng SPF50/PA+++ giúp tạo lớp màng vững chắc, bảo vệ da mặt suốt 6-8 giờ khỏi các tia cực tím độc hại từ ánh nắng mặt trời, các thiết bị điện tử.',
+        thanhphan: 'Dầu quả bơ: Chứa SPF 15, bảo vệ da khỏi các tia UV, tái tạo, nuôi dưỡng, trị bỏng da do nắng, làm sạch và mềm da. Kháng khuẩn, phòng ngừa các bệnh về da. Chống lão hóa da, duy trì làn da tươi trẻ, mịn màng \nDầu hướng dương: Giảm nếp nhăn, giảm tác hại của ánh nắng mặt trờiLàm dịu, làm mềm và giữ ẩm cho da, Thấm sâu nuôi dưỡng từng lớp tế bào daTái tạo da hiệu quả, giúp da căng mịn và tràn đầy sức sống \nChiết xuất cúc La Mã: Giảm nếp nhăn, nếp sạm do nắng cung cấp dưỡng chất chục hồi và tái tạo da giúp da căng mịn, tươi trẻ \nChiết xuất mật ong và vitamin E Acetate: Chống kích ứng, kháng khuẩn, Bổ sung vitamin E giúp làm mịn da, làm dịu và ngăn ngừa viêm da \nZnO và TiO2: Tạo lớp màng che trên bề mặt da Ngăn cản tia UVA và UVB tiếp xúc với da \nTi-K Sericite LA mang tới hiệu quả chống nắng cao gấp 3 lần. Uvinul A Plus B hấp thụ triệt để tia UVA và UVB',
+        huongdanSd: 'Làm sạch da, lấy một lượng kem chống nắng vừa đủ ra tay, chấm đều lên các điểm trên mặt và massage để kem chống nắng có thể thẩm thấu, bảo vệ da toàn diện. Thoa kem chống nắng trước khi ra ngoài 15-20 phút.',
+        giaKm: '295.000',
+        giaGoc: '320.000',
+        img: ProductImages['sp10'],
+        slug: 'kem-chong-nang-imnature',
+        category: [2, 5],
+        currency: "đ"
+    },
+    {
+        id: 'sp11',
+        tenSp: 'Toner I\'m Nature ',
+        mota: 'Toner I\'m Nature với chiết xuất nước cây phỉ, tinh chất hoa hồng và chiết xuất lô hội,… giúp cân bằng độ ẩm, se khít lỗ chân lông, cung cấp dưỡng chất, mang tới cho bạn làn da khỏe mạnh, tươi trẻ và sáng hồng',
+        thanhphan: 'Chiết xuất nước cây phỉ: Làm sạch da dịu nhẹ; Kháng khuẩn, tái tạo da; Cấp ẩm và dưỡng chất cho da; Se khít lỗ chân lông và làm mịn da; Làm chậm quá trình lão hóa da \nTinh dầu hoa hồng: Làm sạch da; Se khít lỗ chân lông; Cung cấp dưỡng chất cho da; Chống lão hóa da; Tái tạo và tăng độ đàn hồi cho da; Thư thái tinh thần, giảm stress \nChiết xuất lô hội: Thanh nhiệt, giải độc cho da; Trị dị ứng, mẩn ngứa; Trị trứng cá, mụn nhọt; Hỗ trợ điều trị nám da; Làm mịn và sáng da \nVitamin B5: Trị mụn; Tái tạo và phục hồi da; Giữ ẩm và giúp da mềm mịn; Chống viêm và kích ứng da',
+        huongdanSd: 'Tẩy trang: Thấm 1 lượng nhỏ toner vào bông gòn, lau nhẹ nhàng trên da mặt để lấy đi bụi bẩn và bã nhờn. \nDưỡng da: Xịt đều toner lên mặt rồi dùng tay vỗ nhẹ để toner thẩm thấu hoàn toàn vào da. Toner có thể dùng như 1 loại xịt khoáng và không giới hạn số lần sử dụng trong ngày. Các chị em phụ nữ làm việc trong môi trường máy điều hòa, làm việc với máy tính nhiều nên dùng toner thường xuyên (2-3h 1 lần) giúp da được cấp ẩm, dưỡng chất và tươi tắn cả ngày. \nDùng khi trang điểm: Xịt 1 lớp toner trước khi trang điểm giúp dưỡng ẩm cho lớp nền siêu mịn, giúp phấn tiệp vào da mà không bị mốc da. Sau khi trang điểm xong, dùng lại toner 1 lần nữa giúp cố định lớp trang điểm, lớp nền bền, mịn, đẹp, không trôi.',
+        giaKm: '245.000',
+        giaGoc: '260.000',
+        img: ProductImages['sp11'],
+        slug: 'toner-im-nature',
+        category: [2, 5],
+        currency: "đ"
+    },
   ];
 
 export default data;

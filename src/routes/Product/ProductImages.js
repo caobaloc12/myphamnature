@@ -9,5 +9,7 @@ ProductImages['sp6'] = require('../../assets/sp6_dau-gao-1.jpg');
 ProductImages['sp7'] = require('../../assets/sp7_sua-rua-mat-1.png');
 ProductImages['sp8'] = require('../../assets/sp8_thao-duoc-ngam-chan-1.png');
 ProductImages['sp9'] = require('../../assets/sp9_serum-lam-hong-1.jpg');
+ProductImages['sp10'] = require('../../assets/sp10_kem-chong-nang.jpg');
+ProductImages['sp11'] = require('../../assets/sp11_toner.jpg');
 
 export default ProductImages;

@@ -5,9 +5,11 @@ import data from '../../data';
 
 import Nav from '../Home/Nav';
 import Footer from '../Home/Footer';
-import './product.less';
-import ProductItem from './ProductItem';
 import Cart from '../Cart';
+import ProductItem from './ProductItem';
+import ogImg from '../../assets/ogImg.jpg';
+import './product.less';
+import { MetaTags } from 'react-meta-tags';
 const { Option } = Select;
 
 let isMobile;
@@ -37,7 +39,6 @@ class ProductList extends React.Component {
     }
 
     componentDidMount() {
-        document.title = "Sản phẩm"
         enquireScreen((b) => {
           this.setState({ isMobile: !!b });
         });
@@ -66,7 +67,7 @@ class ProductList extends React.Component {
 
     renderCategoryMobile() {
         return (
-            <Select defaultValue={categories[0].id} onChange={this.handleSelectChange} style={{ width: '100%', padding: '5px 15px' }}>
+            <Select defaultValue={categories[0].id} onChange={this.handleSelectChange} style={{ width: '100%', padding: '0 0 15px' }}>
                 {
                     categories.map((item, index) => <Option key={index} value={item.id} >{item.text}</Option>)
                 }
@@ -89,6 +90,13 @@ class ProductList extends React.Component {
 
         return (
             <div className="templates-wrapper" style={{background: '#f2f2f2'}}>
+                <MetaTags>
+                    <title>Danh sách sản phẩm</title>
+                    <meta name="description" content="Mỹ phẩm I'm Nature - 100% Thiên Nhiên - Cam kết chất lượng - Giá cả phải chăng - Không tác dụng phụ. MUA NGAY!" />
+                    <meta property="og:title" content="Danh sách sản phẩm"/>
+                    <meta property="og:url" content={window.location.href} />
+                    <meta property="og:image" content={ogImg} />
+                </MetaTags>
                 <Cart />
                 <Nav id="nav_0_0" key="nav_0_0" isMobile={this.state.isMobile} />
                 <div className="product-list-wrapper">

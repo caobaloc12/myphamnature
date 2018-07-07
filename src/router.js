@@ -8,6 +8,7 @@ import ProductDetail from './routes/Product/ProductDetail';
 import data from './data';
 import NotFound from './routes/NotFound';
 import CartCheckout from './routes/CartCheckout';
+import Help from './routes/Help'
 
 function RouterConfig({ history }) {
   return (
@@ -23,6 +24,7 @@ function RouterConfig({ history }) {
           return <ProductDetail product={product}/>
         }} />
         <Route path="/gio-hang" exact component={CartCheckout} />
+        <Route path="/huong-dan" component={Help} />
         <Route path="*" component={NotFound} />
       </Switch>
     </Router>
