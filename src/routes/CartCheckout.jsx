@@ -1,14 +1,12 @@
 import React from 'react';
 import { enquireScreen } from 'enquire-js';
 import { connect } from 'dva';
-import { Row, Col, Breadcrumb, Icon, InputNumber, Button, Message, Table, Tooltip } from 'antd';
-import $ from 'jquery';
+import { Row, Col, Breadcrumb, Icon, InputNumber, Button, Table, Tooltip, Popconfirm } from 'antd';
 
 import { shuffle, numberWithDot } from '../utils/util';
 import Nav from './Home/Nav';
 import Footer from './Home/Footer';
 import ProductRelated from './Product/ProductRelated';
-import data from '../data';
 import FormDangky from './Home/FormDangky';
 
 let isMobile;
@@ -100,8 +98,43 @@ class CartCheckout extends React.Component {
         return numberWithDot(result);
     }
 
-    render() {
+    renderMobileCartList() {
         const { list } = this.state;
+        const columns = [
+            {
+                title: '',
+                key: 'list',
+                render: (t, r, i) => (
+                    <div style={{ display: 'flex'}}>
+                        <img src={r.img} alt={r.tenSp} style={{ width: 50, height: 50 }} />
+                        <div style={{marginLeft: 10}}>
+                            <a href={`#/san-pham/${r.slug}`} style={{ display: 'block' }}>{r.tenSp}</a>
+                            <InputNumber style={{width: 60, marginRight: 8}} defaultValue={r.quantity} min={1} onChange={this.handleQuantityChange.bind(null, r)} />
+                            <span>{` Đơn giá: ${r.giaKm}đ, `}</span>
+                            <span style={{display: 'block'}}>{` Thành tiền: ${r.revenue}đ `}</span>
+                        </div>
+                        <div style={{position: 'absolute', top: 15, right: 15}}>
+
+                            <Popconfirm title="Bạn có thực sự muốn xóa sản phẩm này không?" onConfirm={this.handleRemove.bind(null, r)} placement="topRight" okText="Có" cancelText="Không" > 
+                                <Icon type="delete" style={{ fontSize: 16, cursor: 'pointer', color: '#ef3000' }} />
+                            </Popconfirm>
+                        </div>
+                    </div>
+                )
+            }
+        ];
+        return (
+            <Table 
+                dataSource={list} 
+                columns={columns}
+                size="small"
+                showHeader={false}
+            />
+        )
+    }
+
+    render() {
+        const { list, isMobile } = this.state;
         const columns = [
             {
                 title: 'STT',
@@ -155,8 +188,10 @@ class CartCheckout extends React.Component {
                     </Breadcrumb>
                     <Row className="cart-wrapper">
                         {
-                            list && list.length ?
-                            <Table rowKey={record => record.uid} dataSource={list} columns={columns} pagination={false} style={{ marginTop: 15, marginBottom: 15 }} />
+                            list && list.length ? 
+                             isMobile? 
+                                this.renderMobileCartList()
+                                :<Table rowKey={record => record.uid} dataSource={list} columns={columns} pagination={false} style={{ marginTop: 15, marginBottom: 15 }} />
                             : <p style={{textAlign: 'center', padding: 40 }}>Giỏ hàng trống!</p>
                         }
                     </Row>

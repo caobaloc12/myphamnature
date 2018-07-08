@@ -13,7 +13,6 @@ class Footer extends React.Component {
   };
 
   componentDidMount() {
-    console.log('componentDidMount');
     // Load the SDK asynchronously
     (function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -24,11 +23,7 @@ class Footer extends React.Component {
     }(document, 'script', 'facebook-jssdk'));
     window.FB && window.FB.XFBML.parse();
   }
-
-  componentDidUpdate() {
-    console.log('componentDidUpdate');
-  }
-
+  
   render() {
     const props = { ...this.props };
     const isMobile = props.isMobile;

@@ -1,6 +1,6 @@
 import { Modal } from 'antd';
 import $ from 'jquery';
-const url = "https://docs.google.com/forms/d/e/1FAIpQLSeB9fimEskgBHOHa7rB7ci7ePgM-8mHCfl66t5l9N4sLczF4g/formResponse";
+const url = "https://docs.google.com/forms/d/e/1FAIpQLScSLBPayXSAHiyWgB1l1T8spJtuv7UB3nxFwzRBbwPX3aIGsA/formResponse";
 
 export default {
 
